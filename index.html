@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 友人に遊んでもらうためのページ。検索には載せない（URL を知っていれば誰でも開ける点は変わらない）。 -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>DRAW THE DRAMA ―決闘劇場―</title>
+  <style>
+    :root {
+      --bg: #0e1119;
+      --panel: #171c28;
+      --line: #2a3246;
+      --text: #e8ecf4;
+      --muted: #9aa6bd;
+      --gold: #f2c65a;
+      --blue: #5fb4ff;
+      --red: #ff6b5e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(ellipse at top, #1b2340 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
+      line-height: 1.8;
+    }
+    main { max-width: 760px; margin: 0 auto; padding: 56px 16px 72px; }
+    header { text-align: center; margin-bottom: 40px; }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 7vw, 3.6rem);
+      letter-spacing: 0.06em;
+      font-weight: 800;
+    }
+    .subtitle { margin: 4px 0 0; color: var(--blue); font-size: clamp(1.1rem, 3.5vw, 1.4rem); letter-spacing: 0.2em; }
+    .subtitle small { display: block; color: var(--muted); font-size: 0.7em; letter-spacing: 0.3em; }
+    .play {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 16px 48px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #ffe08a, var(--gold));
+      color: #2a1a00;
+      font-size: 1.3rem;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 0 0 3px rgba(242, 198, 90, 0.25), 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+    .play:hover { filter: brightness(1.08); }
+    .note { color: var(--muted); font-size: 0.9rem; margin-top: 12px; }
+    section { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px 24px; margin-top: 20px; }
+    h2 { margin: 0 0 8px; font-size: 1.15rem; color: var(--gold); }
+    ul { margin: 0; padding-left: 1.2em; }
+    code, .mono { font-family: ui-monospace, Consolas, monospace; font-size: 0.85em; color: var(--muted); word-break: break-all; }
+    footer { margin-top: 32px; text-align: center; color: var(--muted); font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>DRAW THE DRAMA</h1>
+      <p class="subtitle">―決闘劇場―<small>DUEL THEATER</small></p>
+      <a class="play" href="play/">遊ぶ</a>
+      <p class="note">開発中の試遊版です。PC のブラウザ（Chrome・Edge など）で遊んでください。</p>
+    </header>
+
+    <section>
+      <h2>どんなゲーム？</h2>
+      <p>カードに書かれたモンスターの設定が、そのまま盤の上で本当に起きる。
+        マスター同士が掛け合い、モンスターが盤を駆け、漫画みたいな無茶な展開で決着する対戦ゲームです。</p>
+    </section>
+
+    <section>
+      <h2>遊ぶ前に</h2>
+      <ul>
+        <li>最初の読み込みに少し時間がかかります（約60MB）。</li>
+        <li>デッキなどの保存は、遊んだブラウザの中に残ります。別のブラウザや端末には引き継がれません。</li>
+        <li>画面右下のボタンで全画面にすると遊びやすくなります。</li>
+        <li>スマホでも開けますが、マウス操作を前提に作っているので操作しにくい場面があります。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>クレジット</h2>
+      <ul>
+        <li>"Dark Carnival" by Machine — <span class="mono">https://opengameart.org/content/dark-carnival</span> (CC-BY 3.0)</li>
+        <li>Fantasy Sound Effects Library by Little Robot Sound Factory — <a href="https://www.littlerobotsoundfactory.com" style="color:var(--blue)">www.littlerobotsoundfactory.com</a> (CC-BY 3.0)</li>
+        <li>フォント：Noto Sans JP（SIL Open Font License 1.1）</li>
+        <li>その他の効果音・エフェクトは CC0 の素材を使っています。</li>
+        <li>カードの絵などの一部の画像は AI で生成したもので、今後描き直す予定です。</li>
+      </ul>
+    </section>
+
+    <footer>© Tamalilis — DRAW THE DRAMA</footer>
+  </main>
+</body>
+</html>
