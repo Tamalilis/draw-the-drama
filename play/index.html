@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-<!-- Unity 標準の Default ひな形の複製。タブ名と下の表記だけ製品名「DRAW THE DRAMA」にした（2026-09-27）。
+<!-- Unity 標準の Default ひな形の複製。タブ名と下の表記を製品名「DRAW THE DRAMA」にし、PC でも窓いっぱいに広げる（2026-09-27）。
      productName は PC版の保存先を決めるので変えない（要件定義「製品名の決定」）。 -->
   <head>
     <meta charset="utf-8">
@@ -105,9 +105,10 @@
 
 
       } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-        canvas.style.width = "1280px";
-        canvas.style.height = "720px";
+        // PC でもブラウザの窓いっぱいに広げる（固定の 1280×720 だと窓が小さいと端が切れ、大きいと余る。2026-09-27）。
+        // 見た目はスマホと同じ全面表示（下の帯は出さない。全画面は F11）。
+        document.querySelector("#unity-container").className = "unity-mobile";
+        canvas.className = "unity-mobile";
       }
 
       document.querySelector("#unity-loading-bar").style.display = "block";
