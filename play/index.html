@@ -115,16 +115,33 @@
 
       var script = document.createElement("script");
       script.src = loaderUrl;
-      script.onload = () => {
+      script.onload = async () => {
+        // GitHub Pagesのファイル上限に合わせた分割データを、元のgzipバイト列へ戻す。
+        let dataObjectUrl;
+        try {
+          const chunks = await Promise.all(["WebGL.data.part1.unityweb","WebGL.data.part2.unityweb"].map(async (name) => {
+            const response = await fetch(buildUrl + "/" + name);
+            if (!response.ok) throw new Error("ゲームデータを取得できません: " + response.status);
+            return response.blob();
+          }));
+          dataObjectUrl = URL.createObjectURL(new Blob(chunks, {type: "application/octet-stream"}));
+          config.dataUrl = dataObjectUrl;
+        } catch (error) {
+          unityShowBanner(String(error), "error");
+          return;
+        }
+
         createUnityInstance(canvas, config, (progress) => {
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
+                URL.revokeObjectURL(dataObjectUrl);
                 document.querySelector("#unity-loading-bar").style.display = "none";
                 document.querySelector("#unity-fullscreen-button").onclick = () => {
                   unityInstance.SetFullscreen(1);
                 };
 
               }).catch((message) => {
+                URL.revokeObjectURL(dataObjectUrl);
                 alert(message);
               });
             };
